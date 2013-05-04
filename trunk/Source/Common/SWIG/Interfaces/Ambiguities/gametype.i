@@ -1,0 +1,17 @@
+%rename (GameTypes_init)  BWAPI::GameTypes::init;
+%rename (GameTypes_Melee)  BWAPI::GameTypes::Melee;
+%rename (GameTypes_Free_For_All)  BWAPI::GameTypes::Free_For_All;
+%rename (GameTypes_One_on_One)  BWAPI::GameTypes::One_on_One;
+%rename (GameTypes_Capture_The_Flag)  BWAPI::GameTypes::Capture_The_Flag;
+%rename (GameTypes_Greed)  BWAPI::GameTypes::Greed;
+%rename (GameTypes_Slaughter)  BWAPI::GameTypes::Slaughter;
+%rename (GameTypes_Sudden_Death)  BWAPI::GameTypes::Sudden_Death;
+%rename (GameTypes_Ladder)  BWAPI::GameTypes::Ladder;
+%rename (GameTypes_Use_Map_Settings)  BWAPI::GameTypes::Use_Map_Settings;
+%rename (GameTypes_Team_Melee)  BWAPI::GameTypes::Team_Melee;
+%rename (GameTypes_Team_Free_For_All)  BWAPI::GameTypes::Team_Free_For_All;
+%rename (GameTypes_Team_Capture_The_Flag)  BWAPI::GameTypes::Team_Capture_The_Flag;
+%rename (GameTypes_Top_vs_Bottom)  BWAPI::GameTypes::Top_vs_Bottom;
+%rename (GameTypes_Pro_Gamer_League)  BWAPI::GameTypes::Pro_Gamer_League;
+%rename (GameTypes_None)  BWAPI::GameTypes::None;
+%rename (GameTypes_Unknown)  BWAPI::GameTypes::Unknown;

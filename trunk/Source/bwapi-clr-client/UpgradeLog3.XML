@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="bwapi-clr-client">
+</Property><Property Name="Solution File" Value="D:\Projects\BWAPI-3.7.4\bwapi-mono-bridge\Source\bwapi-clr-client\bwapi-clr-client.sln">
+</Property><Property Name="Date" Value="24 April 2013">
+</Property><Property Name="Time" Value="16:58:06">
+</Property><Property Name="Log Number" Value="3">
+</Property></Properties><Event ErrorLevel="0" Project="bwapi-clr" Source="bwapi-clr\bwapi-clr.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="bwapi-clr" Source="bwapi-clr\bwapi-clr.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="bwapi-clr" Source="bwapi-clr\bwapi-clr.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>

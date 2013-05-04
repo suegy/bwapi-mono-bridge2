@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Mono">
+      <UniqueIdentifier>{e0852e5d-75cf-4abc-a4c8-9766a493f762}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{27748690-9974-444c-94e3-b3a9245de0e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SWIG">
+      <UniqueIdentifier>{6d15e109-8425-45b8-a249-eb16260de81b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bridge">
+      <UniqueIdentifier>{46e589db-8062-4409-9d2a-365a8041cc85}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Mono\Manager.cpp">
+      <Filter>Mono</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\FileLogger.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="Util\Logger.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\SWIG\Wrapper\bwapi-bridge.cxx">
+      <Filter>SWIG</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Common\SWIG\Wrapper\bwta-bridge.cxx">
+      <Filter>SWIG</Filter>
+    </ClCompile>
+    <ClCompile Include="Dll.cpp">
+      <Filter>Bridge</Filter>
+    </ClCompile>
+    <ClCompile Include="proxyAIModule.cpp">
+      <Filter>Bridge</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Mono\Manager.h">
+      <Filter>Mono</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\FileLogger.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Foreach.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Gnu.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Logger.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\LogLevel.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="Util\Utils.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="proxyAIModule.h">
+      <Filter>Bridge</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,404 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6657C37C-4F1B-4972-AAB0-B395EE5F53DF}</ProjectGuid>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputType>Library</OutputType>
+    <NoStandardLibraries>false</NoStandardLibraries>
+    <AssemblyName>bwapi-clr</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <RootNamespace>bwapi_clr</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\debug-binaries\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CLIENT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\debug-binaries\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;CLIENT</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\BulletData.cs">
+      <Link>BWAPIC\BulletData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\bwapiclient.cs">
+      <Link>BWAPIC\bwapiclient.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\bwapiclientPINVOKE.cs">
+      <Link>BWAPIC\bwapiclientPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\BWAPIC_Event.cs">
+      <Link>BWAPIC\BWAPIC_Event.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\BWAPIC_Position.cs">
+      <Link>BWAPIC\BWAPIC_Position.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\BWAPIC_UnitCommand.cs">
+      <Link>BWAPIC\BWAPIC_UnitCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\Client.cs">
+      <Link>BWAPIC\Client.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\Command.cs">
+      <Link>BWAPIC\Command.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\CommandType_Enum.cs">
+      <Link>BWAPIC\CommandType_Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\ForceData.cs">
+      <Link>BWAPIC\ForceData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\ForceImpl.cs">
+      <Link>BWAPIC\ForceImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\GameData.cs">
+      <Link>BWAPIC\GameData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\GameImpl.cs">
+      <Link>BWAPIC\GameImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\PlayerData.cs">
+      <Link>BWAPIC\PlayerData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\PlayerImpl.cs">
+      <Link>BWAPIC\PlayerImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\Shape.cs">
+      <Link>BWAPIC\Shape.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\ShapeType_Enum.cs">
+      <Link>BWAPIC\ShapeType_Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_a_1024__bool.cs">
+      <Link>BWAPIC\SWIGTYPE_p_a_1024__bool.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_a_256__bool.cs">
+      <Link>BWAPIC\SWIGTYPE_p_a_256__bool.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_a_256__char.cs">
+      <Link>BWAPIC\SWIGTYPE_p_a_256__char.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_a_256__int.cs">
+      <Link>BWAPIC\SWIGTYPE_p_a_256__int.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_a_256__unsigned_short.cs">
+      <Link>BWAPIC\SWIGTYPE_p_a_256__unsigned_short.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_bool.cs">
+      <Link>BWAPIC\SWIGTYPE_p_bool.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_RegionData.cs">
+      <Link>BWAPIC\SWIGTYPE_p_RegionData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\SWIGTYPE_p_unsigned_short.cs">
+      <Link>BWAPIC\SWIGTYPE_p_unsigned_short.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\UnitData.cs">
+      <Link>BWAPIC\UnitData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\unitFinder.cs">
+      <Link>BWAPIC\unitFinder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPIC\UnitImpl.cs">
+      <Link>BWAPIC\UnitImpl.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\AIModule.cs">
+      <Link>BWAPI\AIModule.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Bullet.cs">
+      <Link>BWAPI\Bullet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\BulletPtrSet.cs">
+      <Link>BWAPI\BulletPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\BulletType.cs">
+      <Link>BWAPI\BulletType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\BulletTypeSet.cs">
+      <Link>BWAPI\BulletTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\bwapi.cs">
+      <Link>BWAPI\bwapi.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\bwapiPINVOKE.cs">
+      <Link>BWAPI\bwapiPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Color.cs">
+      <Link>BWAPI\Color.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\DamageType.cs">
+      <Link>BWAPI\DamageType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\DamageTypeSet.cs">
+      <Link>BWAPI\DamageTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Enum.cs">
+      <Link>BWAPI\Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Error.cs">
+      <Link>BWAPI\Error.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\ErrorSet.cs">
+      <Link>BWAPI\ErrorSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Event.cs">
+      <Link>BWAPI\Event.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\EventList.cs">
+      <Link>BWAPI\EventList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\EventType_Enum.cs">
+      <Link>BWAPI\EventType_Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\ExplosionType.cs">
+      <Link>BWAPI\ExplosionType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\ExplosionTypeSet.cs">
+      <Link>BWAPI\ExplosionTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Flag_Enum.cs">
+      <Link>BWAPI\Flag_Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Force.cs">
+      <Link>BWAPI\Force.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\ForcePtrSet.cs">
+      <Link>BWAPI\ForcePtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Game.cs">
+      <Link>BWAPI\Game.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\GameType.cs">
+      <Link>BWAPI\GameType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\GameTypeSet.cs">
+      <Link>BWAPI\GameTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Key.cs">
+      <Link>BWAPI\Key.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Latency_Enum.cs">
+      <Link>BWAPI\Latency_Enum.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\MouseButton.cs">
+      <Link>BWAPI\MouseButton.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Order.cs">
+      <Link>BWAPI\Order.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\OrderSet.cs">
+      <Link>BWAPI\OrderSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Player.cs">
+      <Link>BWAPI\Player.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\PlayerPtrSet.cs">
+      <Link>BWAPI\PlayerPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\PlayerType.cs">
+      <Link>BWAPI\PlayerType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\PlayerTypeSet.cs">
+      <Link>BWAPI\PlayerTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Position.cs">
+      <Link>BWAPI\Position.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\PositionPair.cs">
+      <Link>BWAPI\PositionPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\PositionSet.cs">
+      <Link>BWAPI\PositionSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\PositionVector.cs">
+      <Link>BWAPI\PositionVector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Race.cs">
+      <Link>BWAPI\Race.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\RaceSet.cs">
+      <Link>BWAPI\RaceSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\SWIGTYPE_p_BWAPI__Region.cs">
+      <Link>BWAPI\SWIGTYPE_p_BWAPI__Region.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\SWIGTYPE_p_int.cs">
+      <Link>BWAPI\SWIGTYPE_p_int.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\SWIGTYPE_p_Order.cs">
+      <Link>BWAPI\SWIGTYPE_p_Order.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\SWIGTYPE_p_Region.cs">
+      <Link>BWAPI\SWIGTYPE_p_Region.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\SWIGTYPE_p_std__setT_BWAPI__Region_p_t.cs">
+      <Link>BWAPI\SWIGTYPE_p_std__setT_BWAPI__Region_p_t.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\SWIGTYPE_p_void.cs">
+      <Link>BWAPI\SWIGTYPE_p_void.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TechType.cs">
+      <Link>BWAPI\TechType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TechTypeSet.cs">
+      <Link>BWAPI\TechTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TilePosition.cs">
+      <Link>BWAPI\TilePosition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TilePositionDoubleMap.cs">
+      <Link>BWAPI\TilePositionDoubleMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TilePositionDoublePair.cs">
+      <Link>BWAPI\TilePositionDoublePair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TilePositionSet.cs">
+      <Link>BWAPI\TilePositionSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TilePositionVector.cs">
+      <Link>BWAPI\TilePositionVector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\TournamentModule.cs">
+      <Link>BWAPI\TournamentModule.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Type.cs">
+      <Link>BWAPI\Type.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\Unit.cs">
+      <Link>BWAPI\Unit.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitCommand.cs">
+      <Link>BWAPI\UnitCommand.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitCommandType.cs">
+      <Link>BWAPI\UnitCommandType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitCommandTypeSet.cs">
+      <Link>BWAPI\UnitCommandTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitPtrSet.cs">
+      <Link>BWAPI\UnitPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitSizeType.cs">
+      <Link>BWAPI\UnitSizeType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitSizeTypeSet.cs">
+      <Link>BWAPI\UnitSizeTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitType.cs">
+      <Link>BWAPI\UnitType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitTypeIntMap.cs">
+      <Link>BWAPI\UnitTypeIntMap.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitTypeIntPair.cs">
+      <Link>BWAPI\UnitTypeIntPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitTypeList.cs">
+      <Link>BWAPI\UnitTypeList.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UnitTypeSet.cs">
+      <Link>BWAPI\UnitTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UpgradeType.cs">
+      <Link>BWAPI\UpgradeType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\UpgradeTypeSet.cs">
+      <Link>BWAPI\UpgradeTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\WeaponType.cs">
+      <Link>BWAPI\WeaponType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWAPI\WeaponTypeSet.cs">
+      <Link>BWAPI\WeaponTypeSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\BaseLocation.cs">
+      <Link>BWTA\BaseLocation.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\BaseLocationPtrSet.cs">
+      <Link>BWTA\BaseLocationPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\bwta.cs">
+      <Link>BWTA\bwta.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\bwtaPINVOKE.cs">
+      <Link>BWTA\bwtaPINVOKE.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\Chokepoint.cs">
+      <Link>BWTA\Chokepoint.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\ChokepointPtrSet.cs">
+      <Link>BWTA\ChokepointPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\Polygon.cs">
+      <Link>BWTA\Polygon.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\PolygonPtrSet.cs">
+      <Link>BWTA\PolygonPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\PolygonVector.cs">
+      <Link>BWTA\PolygonVector.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\RectangleArrayDouble.cs">
+      <Link>BWTA\RectangleArrayDouble.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\Region.cs">
+      <Link>BWTA\Region.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\RegionPtrRegionPtrPair.cs">
+      <Link>BWTA\RegionPtrRegionPtrPair.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\RegionPtrSet.cs">
+      <Link>BWTA\RegionPtrSet.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\SWIGTYPE_p_double.cs">
+      <Link>BWTA\SWIGTYPE_p_double.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Common\SWIG\Classes\BWTA\SWIGTYPE_p_FILE.cs">
+      <Link>BWTA\SWIGTYPE_p_FILE.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
+  <ProjectExtensions>
+    <VisualStudio AllowExistingFolder="true" />
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>copy /y "$(ProjectDir)$(OutDir)bwapi-clr.dll" "$(SolutionDir)..\..\Release\Libs\client"</PostBuildEvent>
+  </PropertyGroup>
+</Project>

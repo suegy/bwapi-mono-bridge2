@@ -1,0 +1,44 @@
+
+added boolean fix:
+
+//fix up operator overrides.
+%rename(opNonzero) *::operator bool; 
+
+linked against the latest BWAPI(3.7.4)
+
+changed rectanglearray.h in bwta below methods to the following
+
+
+ template <class Type>
+  Type* RectangleArray<Type>::getItem(unsigned int x, unsigned int y)
+  {
+    //added &
+    return &(this->getColumn(x)[y]);
+  }
+  
+  
+  
+//------------------------------------------------ SET ITEM ------------------------------------------------
+  template <class Type>
+  void RectangleArray<Type>::setItem(unsigned int x, unsigned int y, Type* item)
+  {
+   //added *  
+  this->getColumn(x)[y] = *item;
+  }
+
+
+
+template <class Type>
+  void RectangleArray<Type>::printToFile(FILE* f)
+  {
+    for (unsigned int y = 0; y < this->getHeight(); y++)
+    {
+      for (unsigned int x = 0; x < this->getWidth(); x++)
+      {
+	//added explicit (Char) cast   
+     char ch = (char)this->getColumn(x)[y];
+        fprintf_s(f, "%c", ch);
+      }
+      fprintf_s(f, "\n");
+    }
+  }

@@ -1,0 +1,13 @@
+%rename (Colors_init)  BWAPI::Colors::init;
+%rename (Colors_Red)  BWAPI::Colors::Red;
+%rename (Colors_Blue)  BWAPI::Colors::Blue;
+%rename (Colors_Teal)  BWAPI::Colors::Teal;
+%rename (Colors_Purple)  BWAPI::Colors::Purple;
+%rename (Colors_Orange)  BWAPI::Colors::Orange;
+%rename (Colors_Brown)  BWAPI::Colors::Brown;
+%rename (Colors_White)  BWAPI::Colors::White;
+%rename (Colors_Yellow)  BWAPI::Colors::Yellow;
+%rename (Colors_Green)  BWAPI::Colors::Green;
+%rename (Colors_Cyan)  BWAPI::Colors::Cyan;
+%rename (Colors_Black)  BWAPI::Colors::Black;
+%rename (Colors_Grey)  BWAPI::Colors::Grey;

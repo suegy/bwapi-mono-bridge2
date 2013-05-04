@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="bwapi-clr-client">
+</Property><Property Name="Solution File" Value="D:\Projects\bwapi-mono-bridge\Source\bwapi-clr-client\bwapi-clr-client.sln">
+</Property><Property Name="Date" Value="24 April 2013">
+</Property><Property Name="Time" Value="14:19">
+</Property></Properties><Event ErrorLevel="0" Project="bwapi-native" Source="bwapi-native\bwapi-native.vcproj" Description="Converting project file 'D:\Projects\bwapi-mono-bridge\Source\bwapi-clr-client\bwapi-native\bwapi-native.vcproj'.">
+</Event><Event ErrorLevel="1" Project="bwapi-native" Source="bwapi-native\bwapi-native.vcproj" Description="VCWebServiceProxyGeneratorTool is no longer supported. The tool has been removed from your project settings.">
+</Event><Event ErrorLevel="1" Project="bwapi-native" Source="bwapi-native\bwapi-native.vcproj" Description="MSB8012: $(TargetPath) ('D:\Projects\bwapi-mono-bridge\Source\bwapi-clr-client\Debug\bwapi-native.dll') does not match the Linker's OutputFile property value 'D:\Projects\bwapi-mono-bridge\Source\bwapi-clr-client\debug-binaries\bwapi-native.dll' ('D:\Projects\bwapi-mono-bridge\Source\bwapi-clr-client\debug-binaries\bwapi-native.dll') in project configuration 'Debug|Win32'. This may cause your project to build incorrectly. To correct this, please make sure that $(TargetPath) property value matches the value specified in %(Link.OutputFile).">
+</Event><Event ErrorLevel="0" Project="bwapi-native" Source="bwapi-native\bwapi-native.vcproj" Description="Done converting to new project file 'D:\Projects\bwapi-mono-bridge\Source\bwapi-clr-client\bwapi-native\bwapi-native.vcxproj'.">
+</Event><Event ErrorLevel="3" Project="bwapi-native" Source="bwapi-native\bwapi-native.vcproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="bwapi-clr" Source="bwapi-clr\bwapi-clr.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="bwapi-clr" Source="bwapi-clr\bwapi-clr.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="testbot" Source="testbot\testbot.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="testbot" Source="testbot\testbot.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="ClrAIModuleLoader" Source="clrAIModuleLoader\ClrAIModuleLoader.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="ClrAIModuleLoader" Source="clrAIModuleLoader\ClrAIModuleLoader.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="StarcraftBotLib" Source="StarcraftBotLib\StarcraftBotLib.csproj" Description="Project converted successfully">
+</Event><Event ErrorLevel="3" Project="StarcraftBotLib" Source="StarcraftBotLib\StarcraftBotLib.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="bwapi-clr-client.sln" Description="Solution converted successfully">
+</Event><Event ErrorLevel="3" Project="" Source="bwapi-clr-client.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="bwapi-clr" Source="bwapi-clr\bwapi-clr.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="testbot" Source="testbot\testbot.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="ClrAIModuleLoader" Source="clrAIModuleLoader\ClrAIModuleLoader.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event><Event ErrorLevel="0" Project="StarcraftBotLib" Source="StarcraftBotLib\StarcraftBotLib.csproj" Description="Scan complete: Upgrade not required for project files.">
+</Event></UpgradeLog>
