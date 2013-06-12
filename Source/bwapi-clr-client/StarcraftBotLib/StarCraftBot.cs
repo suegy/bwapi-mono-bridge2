@@ -7,7 +7,7 @@ using BWAPI;
 
 namespace StarcraftBotLib
 {
-    public class BODStarCraftBot : IStarcraftBot
+    public class StarCraftBot : IStarcraftBot
     {
         void IStarcraftBot.onStart()
         {
