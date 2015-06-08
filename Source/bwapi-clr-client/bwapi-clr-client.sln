@@ -17,9 +17,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClrAIModuleLoader", "clrAIM
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarcraftBotLib", "StarcraftBotLib\StarcraftBotLib.csproj", "{70550A19-51BF-46AE-B748-07191E2CF155}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSH-Launcher", "..\..\..\..\SCAI\POSH-Launcher\POSH-Launcher.csproj", "{2829914E-AD78-450D-96D2-404EB8E06CB5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSH-Launcher", "..\scbot.git\POSH-Launcher\POSH-Launcher.csproj", "{2829914E-AD78-450D-96D2-404EB8E06CB5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSH-StarCraftBot", "..\..\..\..\SCAI\POSH-StarCraftBot\POSH-StarCraftBot.csproj", "{A4730B6A-6717-48D8-AEB2-810AE3A0315D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "POSH-StarCraftBot", "..\scbot.git\POSH-StarCraftBot\POSH-StarCraftBot.csproj", "{A4730B6A-6717-48D8-AEB2-810AE3A0315D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
