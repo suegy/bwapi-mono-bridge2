@@ -29,11 +29,12 @@
 
 // MACRO for use within the std::vector class body
 %define SWIG_STD_LIST_MINIMUM_INTERNAL(CSINTERFACE, CONST_REFERENCE_TYPE, CTYPE...)
-%typemap(csinterfaces) std::list<CTYPE > "IDisposable, System.Collections.IEnumerable\n#if !SWIG_DOTNET_1\n    , System.Collections.Generic.CSINTERFACE<$typemap(cstype, CTYPE)>\n#endif\n";
+%typemap(csinterfaces) std::list<CTYPE > "global::System.IDisposable, global::System.Collections.IEnumerable\n#if !SWIG_DOTNET_3\n    , global::System.Collections.Generic.CSINTERFACE<$typemap(cstype, CTYPE)>\n#endif\n";
+
 %typemap(cscode) std::list<CTYPE > %{
   public $csclassname(System.Collections.ICollection c) : this() {
     if (c == null)
-      throw new ArgumentNullException("c");
+      throw new global::System.ArgumentNullException("c");
     foreach ($typemap(cstype, CTYPE) element in c) {
       this.Add(element);
     }
@@ -66,12 +67,12 @@
   public System.Collections.Generic.ICollection<$typemap(cstype, CTYPE)> Values {
     get {
       System.Collections.Generic.ICollection<$typemap(cstype, CTYPE)> values = new System.Collections.Generic.List<$typemap(cstype, CTYPE)>();
-      IntPtr iter = create_iterator_begin();
+      global::System.IntPtr iter = create_iterator_begin();
       try {
         while (true) {
           values.Add(get_next_key(iter));
         }
-      } catch (ArgumentOutOfRangeException) {
+      } catch (global::System.ArgumentOutOfRangeException) {
       }
       return values;
     }
@@ -102,17 +103,17 @@
 #endif
   {
     if (array == null)
-      throw new ArgumentNullException("array");
+      throw new global::System.ArgumentNullException("array");
     if (index < 0)
-      throw new ArgumentOutOfRangeException("index", "Value is less than zero");
+      throw new global::System.ArgumentOutOfRangeException("index", "Value is less than zero");
     if (arrayIndex < 0)
-      throw new ArgumentOutOfRangeException("arrayIndex", "Value is less than zero");
+      throw new global::System.ArgumentOutOfRangeException("arrayIndex", "Value is less than zero");
     if (count < 0)
-      throw new ArgumentOutOfRangeException("count", "Value is less than zero");
+      throw new global::System.ArgumentOutOfRangeException("count", "Value is less than zero");
     if (array.Rank > 1)
-      throw new ArgumentException("Multi dimensional array.", "array");
+      throw new global::System.ArgumentException("Multi dimensional array.", "array");
     if (index+count > this.Count || arrayIndex+count > array.Length)
-      throw new ArgumentException("Number of elements to copy is too large.");
+      throw new global::System.ArgumentException("Number of elements to copy is too large.");
   
   System.Collections.Generic.IList<$typemap(cstype, CTYPE)> keyList = new System.Collections.Generic.List<$typemap(cstype, CTYPE)>(this.Values);
     for (int i = 0; i < this.Count; i++) {
@@ -163,11 +164,11 @@
     public $typemap(cstype, CTYPE) Current {
       get {
         if (currentIndex == -1)
-          throw new InvalidOperationException("Enumeration not started.");
+          throw new global::System.InvalidOperationException("Enumeration not started.");
         if (currentIndex > currentSize - 1)
-          throw new InvalidOperationException("Enumeration finished.");
+          throw new global::System.InvalidOperationException("Enumeration finished.");
         if (currentObject == null)
-          throw new InvalidOperationException("Collection modified.");
+          throw new global::System.InvalidOperationException("Collection modified.");
         return ($typemap(cstype, CTYPE))currentObject;
       }
     }
@@ -196,7 +197,7 @@
       currentIndex = -1;
       currentObject = null;
       if (collectionRef.Count != currentSize) {
-        throw new InvalidOperationException("Collection modified.");
+        throw new global::System.InvalidOperationException("Collection modified.");
       }
     }
 

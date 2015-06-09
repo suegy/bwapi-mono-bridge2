@@ -6,8 +6,7 @@
 
 /* K is the C++ key type, T is the C++ value type */
 %define SWIG_STD_SET_INTERNAL(T)
-
-%typemap(csinterfaces) std::set< T > "IDisposable \n#if !SWIG_DOTNET_1\n    , System.Collections.Generic.ICollection<$typemap(cstype, T)>\n#endif\n";
+%typemap(csinterfaces) std::set< T > "global::System.IDisposable \n#if !SWIG_DOTNET_3\n    , global::System.Collections.Generic.ICollection<$typemap(cstype, T)>\n#endif\n";
 %typemap(cscode) std::set< T > %{
 
   
@@ -27,12 +26,12 @@
  public System.Collections.Generic.ICollection<$typemap(cstype, T)> Values {
     get {
       System.Collections.Generic.ICollection<$typemap(cstype, T)> values = new System.Collections.Generic.List<$typemap(cstype, T)>();
-      IntPtr iter = create_iterator_begin();
+      global::System.IntPtr iter = create_iterator_begin();
       try {
         while (true) {
           values.Add(get_next_key(iter));
         }
-      } catch (ArgumentOutOfRangeException) {
+      } catch (global::System.ArgumentOutOfRangeException) {
       }
       return values;
     }
@@ -52,13 +51,13 @@
 
   public void CopyTo( $typemap(cstype, T)[] array, int arrayIndex) {
     if (array == null)
-      throw new ArgumentNullException("array");
+      throw new global::System.ArgumentNullException("array");
     if (arrayIndex < 0)
-      throw new ArgumentOutOfRangeException("arrayIndex", "Value is less than zero");
+      throw new global::System.ArgumentOutOfRangeException("arrayIndex", "Value is less than zero");
     if (array.Rank > 1)
-      throw new ArgumentException("Multi dimensional array.", "array");
+      throw new global::System.ArgumentException("Multi dimensional array.", "array");
     if (arrayIndex+this.Count > array.Length)
-      throw new ArgumentException("Number of elements to copy is too large.");
+      throw new global::System.ArgumentException("Number of elements to copy is too large.");
 
    System.Collections.Generic.IList<$typemap(cstype, T)> keyList = new System.Collections.Generic.List<$typemap(cstype, T)>(this.Values);
     for (int i = 0; i < this.Count; i++) {
@@ -105,11 +104,11 @@
     public  $typemap(cstype, T) Current {
       get {
         if (currentIndex == -1)
-          throw new InvalidOperationException("Enumeration not started.");
+          throw new global::System.InvalidOperationException("Enumeration not started.");
         if (currentIndex > currentSize - 1)
-          throw new InvalidOperationException("Enumeration finished.");
+          throw new global::System.InvalidOperationException("Enumeration finished.");
         if (currentObject == null)
-          throw new InvalidOperationException("Collection modified.");
+          throw new global::System.InvalidOperationException("Collection modified.");
         return ( $typemap(cstype, T))currentObject;
       }
     }
@@ -138,7 +137,7 @@
       currentIndex = -1;
       currentObject = null;
       if (collectionRef.Count != currentSize) {
-        throw new InvalidOperationException("Collection modified.");
+        throw new global::System.InvalidOperationException("Collection modified.");
       }
     }
 

@@ -9,15 +9,6 @@ linked against the latest BWAPI(3.7.4)
 changed rectanglearray.h in bwta below methods to the following
 
 
- template <class Type>
-  Type* RectangleArray<Type>::getItem(unsigned int x, unsigned int y)
-  {
-    //added &
-    return &(this->getColumn(x)[y]);
-  }
-  
-  
-  
 //------------------------------------------------ SET ITEM ------------------------------------------------
   template <class Type>
   void RectangleArray<Type>::setItem(unsigned int x, unsigned int y, Type* item)

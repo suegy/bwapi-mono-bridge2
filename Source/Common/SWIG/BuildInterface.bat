@@ -5,7 +5,7 @@ REM
 
 
 :start
-SET SWIGPATH=D:\Programs\swigwin-2.0.9
+SET SWIGPATH="C:\Program Files (x86)\swigwin-3.0.5"
 SET BWAPIINCLUDE=..\..\..\..\include
 
 erase /s /q Classes\*.*
