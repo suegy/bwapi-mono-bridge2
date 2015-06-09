@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using SWIG.BWAPI;
 using SWIG.BWAPIC;
+using SWIG.BWTA;
 
 namespace testbot
 {
@@ -72,11 +73,11 @@ namespace testbot
         show_visibility_data=false;
                      */
 
-                    //  bwapi.readMap();
+                      bwta.readMap();
                     
-//                    bwapi.Broodwar.printf("The match up is {0} v {1}",
-//                        bwapi.Broodwar.self().getRace().getName(),
-//                        bwapi.Broodwar.enemy().getRace().getName());
+                    bwapi.Broodwar.sendText(String.Format("The match up is {0} v {1}",
+                        bwapi.Broodwar.self().getRace().getName(),
+                        bwapi.Broodwar.enemy().getRace().getName()));
                     System.Threading.Thread.Sleep(5000); //test
 
                     //send each worker to the mineral field that is closest to it
