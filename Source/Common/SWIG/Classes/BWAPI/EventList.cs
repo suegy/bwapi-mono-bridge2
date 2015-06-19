@@ -11,9 +11,8 @@
 namespace SWIG.BWAPI {
 
 public partial class EventList : global::System.IDisposable, global::System.Collections.IEnumerable
-#if !SWIG_DOTNET_3
-    , global::System.Collections.Generic.IEnumerable<Event>
-#endif
+ , global::System.Collections.Generic.IEnumerable<Event>
+
  {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
@@ -44,7 +43,7 @@ public partial class EventList : global::System.IDisposable, global::System.Coll
     }
   }
 
-  public EventList(System.Collections.ICollection c) : this() {
+  public EventList(global::System.Collections.ICollection c) : this() {
     if (c == null)
       throw new global::System.ArgumentNullException("c");
     foreach (Event element in c) {
@@ -63,7 +62,7 @@ public partial class EventList : global::System.IDisposable, global::System.Coll
       return false;
     }
   }
-
+  
   public int Count {
     get {
       return (int)size();
@@ -76,9 +75,9 @@ public partial class EventList : global::System.IDisposable, global::System.Coll
     }
   }
    
-  public System.Collections.Generic.ICollection<Event> Values {
+  public global::System.Collections.Generic.ICollection<Event> Values {
     get {
-      System.Collections.Generic.ICollection<Event> values = new System.Collections.Generic.List<Event>();
+      global::System.Collections.Generic.ICollection<Event> values = new global::System.Collections.Generic.List<Event>();
       global::System.IntPtr iter = create_iterator_begin();
       try {
         while (true) {
@@ -127,47 +126,44 @@ public partial class EventList : global::System.IDisposable, global::System.Coll
     if (index+count > this.Count || arrayIndex+count > array.Length)
       throw new global::System.ArgumentException("Number of elements to copy is too large.");
   
-  System.Collections.Generic.IList<Event> keyList = new System.Collections.Generic.List<Event>(this.Values);
+  global::System.Collections.Generic.IList<Event> keyList = new global::System.Collections.Generic.List<Event>(this.Values);
     for (int i = 0; i < this.Count; i++) {
       Event currentKey = keyList[i];
       array.SetValue( currentKey, arrayIndex+i);
     }
   }
 
-#if !SWIG_DOTNET_1
-  System.Collections.Generic.IEnumerator<Event> System.Collections.Generic.IEnumerable<Event>.GetEnumerator() {
+  global::System.Collections.Generic.IEnumerator< Event > global::System.Collections.Generic.IEnumerable< Event >.GetEnumerator() {
     return new EventListEnumerator(this);
   }
-#endif
 
-  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+  global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator() {
     return new EventListEnumerator(this);
   }
 
   public EventListEnumerator GetEnumerator() {
     return new EventListEnumerator(this);
   }
+  
 
   // Type-safe enumerator
   /// Note that the IEnumerator documentation requires an InvalidOperationException to be thrown
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class EventListEnumerator : System.Collections.IEnumerator
-#if !SWIG_DOTNET_1
-    , System.Collections.Generic.IEnumerator<Event>
-#endif
+  public sealed class EventListEnumerator : global::System.Collections.IEnumerator
+    , global::System.Collections.Generic.IEnumerator<Event>
   {
     private EventList collectionRef;
+	private System.Collections.Generic.IList<Event> keyCollection;
     private int currentIndex;
     private object currentObject;
-    private System.Collections.Generic.IList<Event> keyCollection;
     private int currentSize;
 
     public EventListEnumerator(EventList collection) {
       collectionRef = collection;
-      keyCollection = new System.Collections.Generic.List<Event>(collection.Values);
       currentIndex = -1;
+	  keyCollection = new System.Collections.Generic.List<Event>(collection.Values);
       currentObject = null;
       currentSize = collectionRef.Count;
     }
@@ -186,19 +182,18 @@ public partial class EventList : global::System.IDisposable, global::System.Coll
     }
 
     // Type-unsafe IEnumerator.Current
-    object System.Collections.IEnumerator.Current {
+    object global::System.Collections.IEnumerator.Current {
       get {
         return Current;
       }
     }
 
     public bool MoveNext() {
-      int size = collectionRef.Count;
+      int size = keyCollection.Count;
       bool moveOkay = (currentIndex+1 < size) && (size == currentSize);
       if (moveOkay) {
         currentIndex++;
-        Event currentKey = keyCollection[currentIndex];
-        currentObject = currentKey;
+		currentObject = keyCollection[currentIndex];
       } else {
         currentObject = null;
       }
@@ -207,7 +202,7 @@ public partial class EventList : global::System.IDisposable, global::System.Coll
 
     public void Reset() {
       currentIndex = -1;
-      currentObject = null;
+	  currentObject = null;
       if (collectionRef.Count != currentSize) {
         throw new global::System.InvalidOperationException("Collection modified.");
       }

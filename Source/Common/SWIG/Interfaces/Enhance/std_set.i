@@ -6,7 +6,8 @@
 
 /* K is the C++ key type, T is the C++ value type */
 %define SWIG_STD_SET_INTERNAL(T)
-%typemap(csinterfaces) std::set< T > "global::System.IDisposable \n#if !SWIG_DOTNET_3\n    , global::System.Collections.Generic.ICollection<$typemap(cstype, T)>\n#endif\n";
+
+%typemap(csinterfaces) std::set< T > "global::System.IDisposable \n#if !SWIG_DOTNET_1\n    , global::System.Collections.Generic.ICollection<$typemap(cstype, T)>\n#endif\n";
 %typemap(cscode) std::set< T > %{
 
   
@@ -23,17 +24,17 @@
   }
 
 #if !SWIG_DOTNET_1
- public System.Collections.Generic.ICollection<$typemap(cstype, T)> Values {
+ public global::System.Collections.Generic.ICollection<$typemap(cstype, T)> Values {
     get {
-      System.Collections.Generic.ICollection<$typemap(cstype, T)> values = new System.Collections.Generic.List<$typemap(cstype, T)>();
+      global::System.Collections.Generic.ICollection<$typemap(cstype, T)> values = new global::System.Collections.Generic.List<$typemap(cstype, T)>();
       global::System.IntPtr iter = create_iterator_begin();
       try {
-        while (true) {
-          values.Add(get_next_key(iter));
-        }
+		  for (int i = 0;i < size();i++){
+			values.Add(get_next_key(iter));
+		}
       } catch (global::System.ArgumentOutOfRangeException) {
       }
-      return values;
+	  return values;
     }
   }
  
@@ -59,18 +60,18 @@
     if (arrayIndex+this.Count > array.Length)
       throw new global::System.ArgumentException("Number of elements to copy is too large.");
 
-   System.Collections.Generic.IList<$typemap(cstype, T)> keyList = new System.Collections.Generic.List<$typemap(cstype, T)>(this.Values);
+   global::System.Collections.Generic.IList<$typemap(cstype, T)> keyList = new global::System.Collections.Generic.List<$typemap(cstype, T)>(this.Values);
     for (int i = 0; i < this.Count; i++) {
       $typemap(cstype, T) currentKey = keyList[i];
       array.SetValue( currentKey, arrayIndex+i);
     }
   }
 
-  System.Collections.Generic.IEnumerator< $typemap(cstype, T)> System.Collections.Generic.IEnumerable<$typemap(cstype, T)>.GetEnumerator() {
+  global::System.Collections.Generic.IEnumerator< $typemap(cstype, T)> global::System.Collections.Generic.IEnumerable<$typemap(cstype, T)>.GetEnumerator() {
     return new $csclassnameEnumerator(this);
   }
 
-  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+  global::System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
     return new $csclassnameEnumerator(this);
   }
 
@@ -83,18 +84,18 @@
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class $csclassnameEnumerator : System.Collections.IEnumerator, 
-      System.Collections.Generic.IEnumerator< $typemap(cstype, T)>
+  public sealed class $csclassnameEnumerator : global::System.Collections.IEnumerator, 
+      global::System.Collections.Generic.IEnumerator< $typemap(cstype, T)>
   {
     private $csclassname collectionRef;
-    private System.Collections.Generic.IList<$typemap(cstype, T)> keyCollection;
+    private global::System.Collections.Generic.IList<$typemap(cstype, T)> keyCollection;
     private int currentIndex;
     private object currentObject;
     private int currentSize;
 
     public $csclassnameEnumerator($csclassname collection) {
       collectionRef = collection;
-      keyCollection = new System.Collections.Generic.List<$typemap(cstype, T)>(collection.Values);
+      keyCollection = new global::System.Collections.Generic.List<$typemap(cstype, T)>(collection.Values);
       currentIndex = -1;
       currentObject = null;
       currentSize = collectionRef.Count;
@@ -114,7 +115,7 @@
     }
 
     // Type-unsafe IEnumerator.Current
-    object System.Collections.IEnumerator.Current {
+    object global::System.Collections.IEnumerator.Current {
       get {
         return Current;
       }
@@ -125,8 +126,7 @@
       bool moveOkay = (currentIndex+1 < size) && (size == currentSize);
       if (moveOkay) {
         currentIndex++;
-        $typemap(cstype, T) currentKey = keyCollection[currentIndex];
-        currentObject = currentKey;
+        currentObject = keyCollection[currentIndex];
       } else {
         currentObject = null;
       }
@@ -136,7 +136,7 @@
     public void Reset() {
       currentIndex = -1;
       currentObject = null;
-      if (collectionRef.Count != currentSize) {
+	  if (collectionRef.Count != currentSize) {
         throw new global::System.InvalidOperationException("Collection modified.");
       }
     }
@@ -221,5 +221,3 @@ namespace std {
     SWIG_STD_SET_INTERNAL(T)
   };
 }
-
-

@@ -17,7 +17,7 @@ namespace SWIG.BWTA {
 	using BWAPI;
 
 public partial class BaseLocationPtrSet : global::System.IDisposable 
-#if !SWIG_DOTNET_3
+#if !SWIG_DOTNET_1
     , global::System.Collections.Generic.ICollection<BaseLocation>
 #endif
  {
@@ -65,17 +65,17 @@ public partial class BaseLocationPtrSet : global::System.IDisposable
   }
 
 #if !SWIG_DOTNET_1
- public System.Collections.Generic.ICollection<BaseLocation> Values {
+ public global::System.Collections.Generic.ICollection<BaseLocation> Values {
     get {
-      System.Collections.Generic.ICollection<BaseLocation> values = new System.Collections.Generic.List<BaseLocation>();
+      global::System.Collections.Generic.ICollection<BaseLocation> values = new global::System.Collections.Generic.List<BaseLocation>();
       global::System.IntPtr iter = create_iterator_begin();
       try {
-        while (true) {
-          values.Add(get_next_key(iter));
-        }
+		  for (int i = 0;i < size();i++){
+			values.Add(get_next_key(iter));
+		}
       } catch (global::System.ArgumentOutOfRangeException) {
       }
-      return values;
+	  return values;
     }
   }
  
@@ -101,18 +101,18 @@ public partial class BaseLocationPtrSet : global::System.IDisposable
     if (arrayIndex+this.Count > array.Length)
       throw new global::System.ArgumentException("Number of elements to copy is too large.");
 
-   System.Collections.Generic.IList<BaseLocation> keyList = new System.Collections.Generic.List<BaseLocation>(this.Values);
+   global::System.Collections.Generic.IList<BaseLocation> keyList = new global::System.Collections.Generic.List<BaseLocation>(this.Values);
     for (int i = 0; i < this.Count; i++) {
       BaseLocation currentKey = keyList[i];
       array.SetValue( currentKey, arrayIndex+i);
     }
   }
 
-  System.Collections.Generic.IEnumerator< BaseLocation> System.Collections.Generic.IEnumerable<BaseLocation>.GetEnumerator() {
+  global::System.Collections.Generic.IEnumerator< BaseLocation> global::System.Collections.Generic.IEnumerable<BaseLocation>.GetEnumerator() {
     return new BaseLocationPtrSetEnumerator(this);
   }
 
-  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+  global::System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
     return new BaseLocationPtrSetEnumerator(this);
   }
 
@@ -125,18 +125,18 @@ public partial class BaseLocationPtrSet : global::System.IDisposable
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class BaseLocationPtrSetEnumerator : System.Collections.IEnumerator, 
-      System.Collections.Generic.IEnumerator< BaseLocation>
+  public sealed class BaseLocationPtrSetEnumerator : global::System.Collections.IEnumerator, 
+      global::System.Collections.Generic.IEnumerator< BaseLocation>
   {
     private BaseLocationPtrSet collectionRef;
-    private System.Collections.Generic.IList<BaseLocation> keyCollection;
+    private global::System.Collections.Generic.IList<BaseLocation> keyCollection;
     private int currentIndex;
     private object currentObject;
     private int currentSize;
 
     public BaseLocationPtrSetEnumerator(BaseLocationPtrSet collection) {
       collectionRef = collection;
-      keyCollection = new System.Collections.Generic.List<BaseLocation>(collection.Values);
+      keyCollection = new global::System.Collections.Generic.List<BaseLocation>(collection.Values);
       currentIndex = -1;
       currentObject = null;
       currentSize = collectionRef.Count;
@@ -156,7 +156,7 @@ public partial class BaseLocationPtrSet : global::System.IDisposable
     }
 
     // Type-unsafe IEnumerator.Current
-    object System.Collections.IEnumerator.Current {
+    object global::System.Collections.IEnumerator.Current {
       get {
         return Current;
       }
@@ -167,8 +167,7 @@ public partial class BaseLocationPtrSet : global::System.IDisposable
       bool moveOkay = (currentIndex+1 < size) && (size == currentSize);
       if (moveOkay) {
         currentIndex++;
-        BaseLocation currentKey = keyCollection[currentIndex];
-        currentObject = currentKey;
+        currentObject = keyCollection[currentIndex];
       } else {
         currentObject = null;
       }
@@ -178,7 +177,7 @@ public partial class BaseLocationPtrSet : global::System.IDisposable
     public void Reset() {
       currentIndex = -1;
       currentObject = null;
-      if (collectionRef.Count != currentSize) {
+	  if (collectionRef.Count != currentSize) {
         throw new global::System.InvalidOperationException("Collection modified.");
       }
     }

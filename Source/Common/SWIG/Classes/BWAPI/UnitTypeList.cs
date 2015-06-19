@@ -11,9 +11,8 @@
 namespace SWIG.BWAPI {
 
 public partial class UnitTypeList : global::System.IDisposable, global::System.Collections.IEnumerable
-#if !SWIG_DOTNET_3
-    , global::System.Collections.Generic.IEnumerable<UnitType>
-#endif
+ , global::System.Collections.Generic.IEnumerable<UnitType>
+
  {
   private global::System.Runtime.InteropServices.HandleRef swigCPtr;
   protected bool swigCMemOwn;
@@ -44,7 +43,7 @@ public partial class UnitTypeList : global::System.IDisposable, global::System.C
     }
   }
 
-  public UnitTypeList(System.Collections.ICollection c) : this() {
+  public UnitTypeList(global::System.Collections.ICollection c) : this() {
     if (c == null)
       throw new global::System.ArgumentNullException("c");
     foreach (UnitType element in c) {
@@ -63,7 +62,7 @@ public partial class UnitTypeList : global::System.IDisposable, global::System.C
       return false;
     }
   }
-
+  
   public int Count {
     get {
       return (int)size();
@@ -76,9 +75,9 @@ public partial class UnitTypeList : global::System.IDisposable, global::System.C
     }
   }
    
-  public System.Collections.Generic.ICollection<UnitType> Values {
+  public global::System.Collections.Generic.ICollection<UnitType> Values {
     get {
-      System.Collections.Generic.ICollection<UnitType> values = new System.Collections.Generic.List<UnitType>();
+      global::System.Collections.Generic.ICollection<UnitType> values = new global::System.Collections.Generic.List<UnitType>();
       global::System.IntPtr iter = create_iterator_begin();
       try {
         while (true) {
@@ -127,47 +126,44 @@ public partial class UnitTypeList : global::System.IDisposable, global::System.C
     if (index+count > this.Count || arrayIndex+count > array.Length)
       throw new global::System.ArgumentException("Number of elements to copy is too large.");
   
-  System.Collections.Generic.IList<UnitType> keyList = new System.Collections.Generic.List<UnitType>(this.Values);
+  global::System.Collections.Generic.IList<UnitType> keyList = new global::System.Collections.Generic.List<UnitType>(this.Values);
     for (int i = 0; i < this.Count; i++) {
       UnitType currentKey = keyList[i];
       array.SetValue( currentKey, arrayIndex+i);
     }
   }
 
-#if !SWIG_DOTNET_1
-  System.Collections.Generic.IEnumerator<UnitType> System.Collections.Generic.IEnumerable<UnitType>.GetEnumerator() {
+  global::System.Collections.Generic.IEnumerator< UnitType > global::System.Collections.Generic.IEnumerable< UnitType >.GetEnumerator() {
     return new UnitTypeListEnumerator(this);
   }
-#endif
 
-  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+  global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator() {
     return new UnitTypeListEnumerator(this);
   }
 
   public UnitTypeListEnumerator GetEnumerator() {
     return new UnitTypeListEnumerator(this);
   }
+  
 
   // Type-safe enumerator
   /// Note that the IEnumerator documentation requires an InvalidOperationException to be thrown
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class UnitTypeListEnumerator : System.Collections.IEnumerator
-#if !SWIG_DOTNET_1
-    , System.Collections.Generic.IEnumerator<UnitType>
-#endif
+  public sealed class UnitTypeListEnumerator : global::System.Collections.IEnumerator
+    , global::System.Collections.Generic.IEnumerator<UnitType>
   {
     private UnitTypeList collectionRef;
+	private System.Collections.Generic.IList<UnitType> keyCollection;
     private int currentIndex;
     private object currentObject;
-    private System.Collections.Generic.IList<UnitType> keyCollection;
     private int currentSize;
 
     public UnitTypeListEnumerator(UnitTypeList collection) {
       collectionRef = collection;
-      keyCollection = new System.Collections.Generic.List<UnitType>(collection.Values);
       currentIndex = -1;
+	  keyCollection = new System.Collections.Generic.List<UnitType>(collection.Values);
       currentObject = null;
       currentSize = collectionRef.Count;
     }
@@ -186,19 +182,18 @@ public partial class UnitTypeList : global::System.IDisposable, global::System.C
     }
 
     // Type-unsafe IEnumerator.Current
-    object System.Collections.IEnumerator.Current {
+    object global::System.Collections.IEnumerator.Current {
       get {
         return Current;
       }
     }
 
     public bool MoveNext() {
-      int size = collectionRef.Count;
+      int size = keyCollection.Count;
       bool moveOkay = (currentIndex+1 < size) && (size == currentSize);
       if (moveOkay) {
         currentIndex++;
-        UnitType currentKey = keyCollection[currentIndex];
-        currentObject = currentKey;
+		currentObject = keyCollection[currentIndex];
       } else {
         currentObject = null;
       }
@@ -207,7 +202,7 @@ public partial class UnitTypeList : global::System.IDisposable, global::System.C
 
     public void Reset() {
       currentIndex = -1;
-      currentObject = null;
+	  currentObject = null;
       if (collectionRef.Count != currentSize) {
         throw new global::System.InvalidOperationException("Collection modified.");
       }

@@ -11,7 +11,7 @@
 namespace SWIG.BWAPI {
 
 public partial class OrderSet : global::System.IDisposable 
-#if !SWIG_DOTNET_3
+#if !SWIG_DOTNET_1
     , global::System.Collections.Generic.ICollection<Order>
 #endif
  {
@@ -59,17 +59,17 @@ public partial class OrderSet : global::System.IDisposable
   }
 
 #if !SWIG_DOTNET_1
- public System.Collections.Generic.ICollection<Order> Values {
+ public global::System.Collections.Generic.ICollection<Order> Values {
     get {
-      System.Collections.Generic.ICollection<Order> values = new System.Collections.Generic.List<Order>();
+      global::System.Collections.Generic.ICollection<Order> values = new global::System.Collections.Generic.List<Order>();
       global::System.IntPtr iter = create_iterator_begin();
       try {
-        while (true) {
-          values.Add(get_next_key(iter));
-        }
+		  for (int i = 0;i < size();i++){
+			values.Add(get_next_key(iter));
+		}
       } catch (global::System.ArgumentOutOfRangeException) {
       }
-      return values;
+	  return values;
     }
   }
  
@@ -95,18 +95,18 @@ public partial class OrderSet : global::System.IDisposable
     if (arrayIndex+this.Count > array.Length)
       throw new global::System.ArgumentException("Number of elements to copy is too large.");
 
-   System.Collections.Generic.IList<Order> keyList = new System.Collections.Generic.List<Order>(this.Values);
+   global::System.Collections.Generic.IList<Order> keyList = new global::System.Collections.Generic.List<Order>(this.Values);
     for (int i = 0; i < this.Count; i++) {
       Order currentKey = keyList[i];
       array.SetValue( currentKey, arrayIndex+i);
     }
   }
 
-  System.Collections.Generic.IEnumerator< Order> System.Collections.Generic.IEnumerable<Order>.GetEnumerator() {
+  global::System.Collections.Generic.IEnumerator< Order> global::System.Collections.Generic.IEnumerable<Order>.GetEnumerator() {
     return new OrderSetEnumerator(this);
   }
 
-  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+  global::System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
     return new OrderSetEnumerator(this);
   }
 
@@ -119,18 +119,18 @@ public partial class OrderSet : global::System.IDisposable
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class OrderSetEnumerator : System.Collections.IEnumerator, 
-      System.Collections.Generic.IEnumerator< Order>
+  public sealed class OrderSetEnumerator : global::System.Collections.IEnumerator, 
+      global::System.Collections.Generic.IEnumerator< Order>
   {
     private OrderSet collectionRef;
-    private System.Collections.Generic.IList<Order> keyCollection;
+    private global::System.Collections.Generic.IList<Order> keyCollection;
     private int currentIndex;
     private object currentObject;
     private int currentSize;
 
     public OrderSetEnumerator(OrderSet collection) {
       collectionRef = collection;
-      keyCollection = new System.Collections.Generic.List<Order>(collection.Values);
+      keyCollection = new global::System.Collections.Generic.List<Order>(collection.Values);
       currentIndex = -1;
       currentObject = null;
       currentSize = collectionRef.Count;
@@ -150,7 +150,7 @@ public partial class OrderSet : global::System.IDisposable
     }
 
     // Type-unsafe IEnumerator.Current
-    object System.Collections.IEnumerator.Current {
+    object global::System.Collections.IEnumerator.Current {
       get {
         return Current;
       }
@@ -161,8 +161,7 @@ public partial class OrderSet : global::System.IDisposable
       bool moveOkay = (currentIndex+1 < size) && (size == currentSize);
       if (moveOkay) {
         currentIndex++;
-        Order currentKey = keyCollection[currentIndex];
-        currentObject = currentKey;
+        currentObject = keyCollection[currentIndex];
       } else {
         currentObject = null;
       }
@@ -172,7 +171,7 @@ public partial class OrderSet : global::System.IDisposable
     public void Reset() {
       currentIndex = -1;
       currentObject = null;
-      if (collectionRef.Count != currentSize) {
+	  if (collectionRef.Count != currentSize) {
         throw new global::System.InvalidOperationException("Collection modified.");
       }
     }

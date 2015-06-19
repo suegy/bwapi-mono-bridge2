@@ -29,10 +29,10 @@
 
 // MACRO for use within the std::vector class body
 %define SWIG_STD_LIST_MINIMUM_INTERNAL(CSINTERFACE, CONST_REFERENCE_TYPE, CTYPE...)
-%typemap(csinterfaces) std::list<CTYPE > "global::System.IDisposable, global::System.Collections.IEnumerable\n#if !SWIG_DOTNET_3\n    , global::System.Collections.Generic.CSINTERFACE<$typemap(cstype, CTYPE)>\n#endif\n";
+%typemap(csinterfaces) std::list<CTYPE > "global::System.IDisposable, global::System.Collections.IEnumerable\n , global::System.Collections.Generic.CSINTERFACE<$typemap(cstype, CTYPE)>\n\n";
 
 %typemap(cscode) std::list<CTYPE > %{
-  public $csclassname(System.Collections.ICollection c) : this() {
+  public $csclassname(global::System.Collections.ICollection c) : this() {
     if (c == null)
       throw new global::System.ArgumentNullException("c");
     foreach ($typemap(cstype, CTYPE) element in c) {
@@ -51,7 +51,7 @@
       return false;
     }
   }
-
+  
   public int Count {
     get {
       return (int)size();
@@ -64,9 +64,9 @@
     }
   }
    
-  public System.Collections.Generic.ICollection<$typemap(cstype, CTYPE)> Values {
+  public global::System.Collections.Generic.ICollection<$typemap(cstype, CTYPE)> Values {
     get {
-      System.Collections.Generic.ICollection<$typemap(cstype, CTYPE)> values = new System.Collections.Generic.List<$typemap(cstype, CTYPE)>();
+      global::System.Collections.Generic.ICollection<$typemap(cstype, CTYPE)> values = new global::System.Collections.Generic.List<$typemap(cstype, CTYPE)>();
       global::System.IntPtr iter = create_iterator_begin();
       try {
         while (true) {
@@ -115,47 +115,44 @@
     if (index+count > this.Count || arrayIndex+count > array.Length)
       throw new global::System.ArgumentException("Number of elements to copy is too large.");
   
-  System.Collections.Generic.IList<$typemap(cstype, CTYPE)> keyList = new System.Collections.Generic.List<$typemap(cstype, CTYPE)>(this.Values);
+  global::System.Collections.Generic.IList<$typemap(cstype, CTYPE)> keyList = new global::System.Collections.Generic.List<$typemap(cstype, CTYPE)>(this.Values);
     for (int i = 0; i < this.Count; i++) {
       $typemap(cstype, CTYPE) currentKey = keyList[i];
       array.SetValue( currentKey, arrayIndex+i);
     }
   }
 
-#if !SWIG_DOTNET_1
-  System.Collections.Generic.IEnumerator<$typemap(cstype, CTYPE)> System.Collections.Generic.IEnumerable<$typemap(cstype, CTYPE)>.GetEnumerator() {
+  global::System.Collections.Generic.IEnumerator< $typemap(cstype, CTYPE) > global::System.Collections.Generic.IEnumerable< $typemap(cstype, CTYPE) >.GetEnumerator() {
     return new $csclassnameEnumerator(this);
   }
-#endif
 
-  System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator() {
+  global::System.Collections.IEnumerator global::System.Collections.IEnumerable.GetEnumerator() {
     return new $csclassnameEnumerator(this);
   }
 
   public $csclassnameEnumerator GetEnumerator() {
     return new $csclassnameEnumerator(this);
   }
+  
 
   // Type-safe enumerator
   /// Note that the IEnumerator documentation requires an InvalidOperationException to be thrown
   /// whenever the collection is modified. This has been done for changes in the size of the
   /// collection but not when one of the elements of the collection is modified as it is a bit
   /// tricky to detect unmanaged code that modifies the collection under our feet.
-  public sealed class $csclassnameEnumerator : System.Collections.IEnumerator
-#if !SWIG_DOTNET_1
-    , System.Collections.Generic.IEnumerator<$typemap(cstype, CTYPE)>
-#endif
+  public sealed class $csclassnameEnumerator : global::System.Collections.IEnumerator
+    , global::System.Collections.Generic.IEnumerator<$typemap(cstype, CTYPE)>
   {
     private $csclassname collectionRef;
+	private System.Collections.Generic.IList<$typemap(cstype, CTYPE)> keyCollection;
     private int currentIndex;
     private object currentObject;
-    private System.Collections.Generic.IList<$typemap(cstype, CTYPE)> keyCollection;
     private int currentSize;
 
     public $csclassnameEnumerator($csclassname collection) {
       collectionRef = collection;
-      keyCollection = new System.Collections.Generic.List<$typemap(cstype, CTYPE)>(collection.Values);
       currentIndex = -1;
+	  keyCollection = new System.Collections.Generic.List<$typemap(cstype, CTYPE)>(collection.Values);
       currentObject = null;
       currentSize = collectionRef.Count;
     }
@@ -174,19 +171,18 @@
     }
 
     // Type-unsafe IEnumerator.Current
-    object System.Collections.IEnumerator.Current {
+    object global::System.Collections.IEnumerator.Current {
       get {
         return Current;
       }
     }
 
     public bool MoveNext() {
-      int size = collectionRef.Count;
+      int size = keyCollection.Count;
       bool moveOkay = (currentIndex+1 < size) && (size == currentSize);
       if (moveOkay) {
         currentIndex++;
-        $typemap(cstype, T) currentKey = keyCollection[currentIndex];
-        currentObject = currentKey;
+		currentObject = keyCollection[currentIndex];
       } else {
         currentObject = null;
       }
@@ -195,7 +191,7 @@
 
     public void Reset() {
       currentIndex = -1;
-      currentObject = null;
+	  currentObject = null;
       if (collectionRef.Count != currentSize) {
         throw new global::System.InvalidOperationException("Collection modified.");
       }
@@ -233,7 +229,7 @@
        //return pv;
       //}
 
-	     // create_iterator_begin() and get_next_key() work together to provide a collection of keys to C#
+	  // create_iterator_begin() and get_next_key() work together to provide a collection of keys to C#
       %apply void *VOID_INT_PTR { std::list< CTYPE >::iterator *create_iterator_begin }
       %apply void *VOID_INT_PTR { std::list< CTYPE >::iterator *swigiterator }
 
@@ -250,14 +246,6 @@
         (*swigiterator)++;
         return (*iter);
       }
-
-  
-       
-   
-    
-   
-   
-
     }
 %enddef
 

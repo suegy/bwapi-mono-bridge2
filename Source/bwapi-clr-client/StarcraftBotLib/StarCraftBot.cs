@@ -12,7 +12,7 @@ namespace StarcraftBotLib
         void IStarcraftBot.onStart()
         {
             System.Console.WriteLine("Starting Match!");
-            bwapi.Broodwar.sendText("Hello world!");
+            bwapi.Broodwar.sendText("Hello world from Template!");
         }
 
         void IStarcraftBot.onEnd(bool isWinner)
