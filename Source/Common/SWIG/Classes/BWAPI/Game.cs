@@ -198,7 +198,7 @@ public static bool operator !=(Game obj1, Game obj2)
   }
 
   public virtual bool getMouseState(MouseButton button) {
-    bool ret = bwapiPINVOKE.Game_getMouseState__SWIG_0(swigCPtr, (int)button);
+    bool ret = bwapiPINVOKE.Game_getMouseState__SWIG_0(swigCPtr, Button);
     return ret;
   }
 

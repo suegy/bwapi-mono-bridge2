@@ -261,7 +261,7 @@ public static bool operator !=(GameImpl obj1, GameImpl obj2)
   }
 
   public override bool getMouseState(MouseButton button) {
-    bool ret = bwapiclientPINVOKE.GameImpl_getMouseState__SWIG_0(swigCPtr, (int)button);
+    bool ret = bwapiclientPINVOKE.GameImpl_getMouseState__SWIG_0(swigCPtr, Button);
     return ret;
   }
 
